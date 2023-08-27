@@ -1,4 +1,5 @@
 # Importa as bibliotecas necessárias
+import pytest
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
