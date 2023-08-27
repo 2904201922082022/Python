@@ -5,7 +5,28 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
+import keras
+from keras.models import load_model
+from keras.preprocessing import image
 
+# Define a função que recebe uma imagem e retorna o modelo do carro
+def classify_car_model(img_path):
+    # Carrega o modelo pré-treinado da CNN
+    model = load_model('car_model_classifier.h5')
+    # Carrega a imagem e redimensiona para 224x224 pixels
+    img = image.load_img(img_path, target_size=(224, 224))
+    # Converte a imagem em um array numpy
+    img = image.img_to_array(img)
+    # Expande as dimensões do array para incluir o tamanho do lote
+    img = img.reshape(1, 224, 224, 3)
+    # Normaliza os valores dos pixels entre 0 e 1
+    img = img / 255.0
+    # Faz a predição usando o modelo da CNN
+    pred = model.predict(img)
+    # Obtém o índice da classe com maior probabilidade
+    pred_class = pred.argmax(axis=-1)[0]
+    # Retorna o nome da classe correspondente ao índice
+    return class_names[pred_class]
 # Lê os dados dos veículos a partir de um arquivo CSV
 df = pd.read_csv('car_data.csv')
 
