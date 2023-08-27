@@ -1,3 +1,43 @@
+I study AI to register and classify different vehicles:
+
+A function in CNN is a mathematical operation that receives an input and produces an output. For example, a convolution function receives an image and a filter, and applies the filter 
+over the image, generating a feature map. An activation function receives a numerical value and applies a non-linear transformation, such as the ReLU or the sigmoid function. 
+A pooling function receives a feature map and reduces its size, applying an operation such as the maximum or the average.
+
+To classify racing cars and commercial cars using a CNN, you need to define a sequence of functions that process the images of the cars and extract the features relevant 
+for the classification. You also need to define an output function, that receives the extracted features and produces a probability for each class. For example, 
+you can use the following sequence of functions:
+
+Conv2D: applies a 3x3 filter with 32 channels over the input image, generating a feature map of 32 channels.
+ReLU: applies the ReLU function over the feature map, introducing non-linearity.
+MaxPooling2D: applies a maximum operation over 2x2 windows of the feature map, reducing its size by half.
+Conv2D: applies another 3x3 filter with 64 channels over the resulting feature map, generating another feature map of 64 channels.
+ReLU: applies the ReLU function over the new feature map, introducing more non-linearity.
+MaxPooling2D: applies another maximum operation over 2x2 windows of the feature map, reducing its size by half again.
+Flatten: transforms the feature map into a one-dimensional vector, preparing it for the dense layer.
+Dense: applies a linear transformation over the vector, generating a vector of 128 elements.
+ReLU: applies the ReLU function over the vector, introducing more non-linearity.
+Dense: applies another linear transformation over the vector, generating a vector of 2 elements, corresponding to the two possible classes: racing car or commercial car.
+Softmax: applies the softmax function over the vector, normalizing it so that its elements sum up to 1 and represent probabilities.
+
+This is just one possible sequence of functions, but there are many others possible. You can change the number and type of the functions, as well as their parameters,
+to obtain different results. You can also use pre-trained models from Keras, such as VGG16 or ResNet50, that have been trained on millions of images and can extract 
+important features from your images. You can adapt these models to your problem using techniques such as transfer learning or fine tuning.
+
+To implement a CNN in C#, you can use a library such as ML.NET, which is an open source framework for machine learning in .NET. ML.NET allows you to define the 
+functions of your CNN using simple and intuitive classes and methods, such as ConvolutionalLayer, ActivationLayer and PoolingLayer. You can also use pre-trained 
+models from TensorFlow in ML.NET, converting them to a format compatible with ONNX (Open Neural Network Exchange).
+
+To train your CNN, you need to define a cost function, that measures how well your CNN is classifying the images, and an optimizer, that updates the parameters 
+of your CNN to minimize the cost function. You also need to define the number of epochs, which is the number of times that your CNN sees the whole training set,
+and the batch size, which is the number of images that your CNN processes at once. You can use methods from ML.NET to compile and fit your CNN using these parameters.
+
+To test your CNN, you need to use the test set and calculate metrics such as accuracy, precision and recall, that measure how well your CNN is classifying the
+images correctly. You can also use methods from ML.NET to generate a confusion matrix, that shows how many images were classified correctly or incorrectly by 
+each class. You can use this information to identify the strengths and weaknesses of your CNN and improve it.
+
+
+================================================================================================================================================================================
 Estudo IA para cadastrar e classificar diferentes veículos:
 
 Uma função na CNN é uma operação matemática que recebe uma entrada e produz uma saída.
