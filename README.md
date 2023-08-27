@@ -1,4 +1,5 @@
-Estudo IA para cadastrar e classificar diferentes veículos.
+Estudo IA para cadastrar e classificar diferentes veículos:
+
 Uma função na CNN é uma operação matemática que recebe uma entrada e produz uma saída.
 Por exemplo, uma função de convolução recebe uma imagem e um filtro, e aplica o filtro sobre a imagem, gerando um mapa de características. 
 Uma função de ativação recebe um valor numérico e aplica uma transformação não-linear, como a função ReLU ou a função sigmoide. 
